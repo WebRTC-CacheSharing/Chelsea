@@ -8,8 +8,13 @@ WebRTC Cache Sharing System 用 WebRTC シグナリングサーバー
 
 - JavaScript
 - Node.js (v0.10.x)
-- Sails.js (v0.11.x)
 - MongoDB
+
+## 利用ライブラリ
+
+- [Sails.js](http://sailsjs.org/) (v0.11.x)
+- [Mocha](http://mochajs.org/)
+- [Power Assert](https://github.com/twada/power-assert)
 
 ## 実行
 
