@@ -12,7 +12,7 @@ _.each(configs, function (config) {
   var adapter = config.connections[config.models.connection].adapter;
   
   describe(env + ': ' + adapter, function () {
-    var PATH = sha256('http://example.com/example.mp4');
+    var PATH = sha256('http://example.com/example.mp4').toUpperCase();
     var ID_1 = 'abcdefghijklmno1';
     var ID_2 = 'abcdefghijklmno2';
     
@@ -89,11 +89,13 @@ _.each(configs, function (config) {
     });
     
     it('POST /peers (length = 2; id = 2)', function (done) {
-      request.post(baseUrl + '/peers?path=' + PATH + '&peerId=' + ID_2, function (err, res, body) {
+      var url = baseUrl + '/peers?path=' + PATH.toLowerCase() + '&peerId=' + ID_2;
+      request.post(url, function (err, res, body) {
         var data = JSON.parse(body);
         
         assert(res.statusCode === 200);
         
+        assert(data.file.path === PATH);
         assert(data.file.peers.length === 2);
         assert(_.contains(data.file.peers, ID_1));
         assert(_.contains(data.file.peers, ID_2));

@@ -13,7 +13,8 @@ module.exports = {
   find: function (req, res) {
     sails.log.info('API called: GET /peers');
     
-    var path = req.param('path');
+    var path = req.param('path') || '';
+    path = path.toUpperCase();
     sails.log.info('API params: path =', path);
     
     File.findOne({ path: path })
@@ -44,7 +45,8 @@ module.exports = {
   create: function (req, res) {
     sails.log.info('API called: POST /peers');
     
-    var path = req.param('path');
+    var path = req.param('path') || '';
+    path = path.toUpperCase();
     sails.log.info('API params: path =', path);
     
     var peerId = req.param('peerId');
@@ -87,7 +89,8 @@ module.exports = {
   destroy: function (req,res) {
     sails.log.info('API called: DELETE /peers');
     
-    var path = req.param('path');
+    var path = req.param('path') || '';
+    path = path.toUpperCase();
     sails.log.info('API params: path =', path);
     
     var peerId = req.param('peerId');
