@@ -88,7 +88,7 @@ _.each(configs, function (config) {
       });
     });
     
-    it('POST /peers (length = 1; id = 2)', function (done) {
+    it('POST /peers (length = 2; id = 2)', function (done) {
       request.post(baseUrl + '/peers?path=' + PATH + '&peerId=' + ID_2, function (err, res, body) {
         var data = JSON.parse(body);
         
@@ -102,7 +102,7 @@ _.each(configs, function (config) {
       });
     });
     
-    it('DELETE /peers (length = 2; id = 1)', function (done) {
+    it('DELETE /peers (length = 1; id = 1)', function (done) {
       request.del(baseUrl + '/peers?path=' + PATH + '&peerId=' + ID_1, function (err, res, body) {
         var data = JSON.parse(body);
         
@@ -116,7 +116,7 @@ _.each(configs, function (config) {
       });
     });
     
-    it('DELETE /peers (length = 2; id = 2)', function (done) {
+    it('DELETE /peers (length = 0; id = 2)', function (done) {
       request.del(baseUrl + '/peers?path=' + PATH + '&peerId=' + ID_2, function (err, res, body) {
         var data = JSON.parse(body);
         
@@ -128,7 +128,7 @@ _.each(configs, function (config) {
       });
     });
     
-    it('DELETE /peers (length = 2; id = 2)', function (done) {
+    it('DELETE /peers (length = 0; id = 2)', function (done) {
       request.del(baseUrl + '/peers?path=' + PATH + '&peerId=' + ID_2, function (err, res, body) {
         var data = JSON.parse(body);
         
