@@ -102,12 +102,29 @@ _.each(configs, function (config) {
       });
     });
     
+    it('GET /peers (length = 2)', function (done) {
+      request.get(baseUrl + '/peers?path=' + PATH, function (err, res, body) {
+        var data = JSON.parse(body);
+        
+        assert(res.statusCode === 200);
+        
+        assert(_.isArray(data.file.peers));
+        assert(_.contains(data.file.peers, ID_1));
+        assert(_.contains(data.file.peers, ID_2));
+        assert(data.file.peers.length === 2);
+        
+        done(err);
+      });
+    });
+    
     it('DELETE /peers (length = 1; id = 1)', function (done) {
       request.del(baseUrl + '/peers?path=' + PATH + '&peerId=' + ID_1, function (err, res, body) {
         var data = JSON.parse(body);
         
         assert(res.statusCode === 200);
         
+        assert(data.file);
+        assert(data.file.path === PATH);
         assert(data.file.peers.length === 1);
         assert(!_.contains(data.file.peers, ID_1));
         assert(_.contains(data.file.peers, ID_2));
