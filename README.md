@@ -23,6 +23,12 @@ $ npm install
 $ npm start
 ```
 
+## テスト
+
+```
+$ npm test
+```
+
 ## API
 [file path] は URL の SHA256 を取り、16進数表記 (大文字) にした物を指定する (= 64 文字固定)。
 
