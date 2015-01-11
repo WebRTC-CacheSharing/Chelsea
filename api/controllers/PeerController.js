@@ -94,7 +94,7 @@ module.exports = {
     sails.log.info('API params: peerId =', peerId);
     
     File.findOne({ path: path })
-      .populate('peers', { where: { peerId: peerId }}) // 結合で該当するピアのみに絞る
+      .populate('peers')
       .exec(function (err, file) {
         if (err) {
           sails.log.error(err.toString());
@@ -105,7 +105,14 @@ module.exports = {
           return res.json(404, { error: 'Not found' });
         }
         
-        Peer.destroy(file.peers[0].id, function (err, peers) {
+        // 削除対象のピアを取得
+        var destroyPeer = _.find(file.peers, function (p) { return p.peerId === peerId; });
+        
+        if (!destroyPeer) {
+          return res.json(404, { error: 'Not found' });
+        }
+        
+        Peer.destroy(destroyPeer.id, function (err, peers) {
           if (err) {
             sails.log.error(err.toString());
             return res.json(400, { error: 'Invalid parameter `peerId`' });
