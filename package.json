@@ -25,13 +25,26 @@
   },
   "scripts": {
     "start": "node app.js",
-    "debug": "node debug app.js"
+    "debug": "node debug app.js",
+    "test": "grunt test"
   },
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/anonymous node/sails user/Chelsea.git"
+    "url": "git://github.com/WebRTC-CacheSharing/Chelsea.git"
   },
-  "author": "anonymous node/sails user",
-  "license": ""
+  "author": "Pine Mizune",
+  "license": "MIT",
+  "devDependencies": {
+    "freeport": "^1.0.4",
+    "grunt-cli": "^0.1.13",
+    "grunt-espower": "^0.10.0",
+    "grunt-mocha-test": "^0.12.6",
+    "lodash": "^2.4.1",
+    "mocha": "^2.1.0",
+    "power-assert": "^0.10.1",
+    "request": "^2.51.0",
+    "sails-memory": "^0.10.3",
+    "sha256": "^0.1.1"
+  }
 }

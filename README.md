@@ -1,5 +1,6 @@
 Chelsea
 -------
+[![Build Status](https://travis-ci.org/WebRTC-CacheSharing/Chelsea.svg?branch=master)](https://travis-ci.org/WebRTC-CacheSharing/Chelsea)
 
 WebRTC Cache Sharing System 用 WebRTC シグナリングサーバー
 
