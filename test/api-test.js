@@ -1,7 +1,7 @@
 var _ = require('lodash');
 var Sails = require('sails').Sails;
 var freeport = require('freeport');
-var request = require('request');
+var request = require('request').defaults({ proxy: null });
 var sha256 = require('sha256');
 var assert = require('power-assert');
 
